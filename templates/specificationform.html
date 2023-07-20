@@ -1,0 +1,62 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="icon" type="image" src="https://edge-a.anydone.com/e344ce6892a7480d9ae5aaff9d3f96d6.svg">
+  <style>
+    .navbar {
+      background-color: black;
+    }
+
+    .navbar .nav-link {
+      color: white;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div class="container-fluid">
+    {% include 'navbar.html' %}
+
+    <div class="container">
+
+
+        <h1>Computer Form</h1>
+  <form method="POST">
+    {% csrf_token %}
+<!--    {{ computer.as_p }} -->
+
+    <div class="form-group">
+      <label for="computer_code">Computer Code</label>
+      {{ computer.computer_code|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label for="computer">Computer</label>
+      {{ computer.computer|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label for="computer_code">Unit Price</label>
+      {{ computer.unit_price|add_class:"form-control" }}
+    </div>
+
+        <div class="form-group">
+    <label for="computer_code">Total Price</label>
+    {{ computer.total_price|add_class:"form-control" }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
