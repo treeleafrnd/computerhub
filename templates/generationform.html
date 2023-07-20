@@ -26,28 +26,12 @@
 
 
         <h1>Computer Form</h1>
-  <form method="POST">
+  <form method="POST" action="">
     {% csrf_token %}
-<!--    {{ computer.as_p }} -->
 
     <div class="form-group">
-      <label for="computer_code">Computer Code</label>
-      {{ computer.computer_code|add_class:"form-control" }}
-    </div>
-
-    <div class="form-group">
-      <label for="computer">Computer</label>
-      {{ computer.computer|add_class:"form-control" }}
-    </div>
-
-    <div class="form-group">
-      <label for="computer_code">Unit Price</label>
-      {{ computer.unit_price|add_class:"form-control" }}
-    </div>
-
-        <div class="form-group">
-    <label for="computer_code">Total Price</label>
-    {{ computer.total_price|add_class:"form-control" }}
+      <label for="generation">Computer Generation</label>
+      {{ form.generation|add_class:"form-control" }}
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

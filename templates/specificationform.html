@@ -31,23 +31,28 @@
 <!--    {{ computer.as_p }} -->
 
     <div class="form-group">
-      <label for="computer_code">Computer Code</label>
-      {{ computer.computer_code|add_class:"form-control" }}
+      <label for="generation">Generatio</label>
+      {{ form.generation|add_class:"form-control" }}
     </div>
 
     <div class="form-group">
-      <label for="computer">Computer</label>
-      {{ computer.computer|add_class:"form-control" }}
+      <label for="min_price">Min Price</label>
+      {{ form.min_price|add_class:"form-control" }}
     </div>
 
     <div class="form-group">
-      <label for="computer_code">Unit Price</label>
-      {{ computer.unit_price|add_class:"form-control" }}
+      <label for="max_price">Max Price</label>
+      {{ form.max_price|add_class:"form-control" }}
     </div>
 
-        <div class="form-group">
-    <label for="computer_code">Total Price</label>
-    {{ computer.total_price|add_class:"form-control" }}
+    <div class="form-group">
+      <label for="ram">Ram</label>
+      {{ form.ram|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label for="brand">Brand</label>
+      {{ form.brand|add_class:"form-control" }}
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

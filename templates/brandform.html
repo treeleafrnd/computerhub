@@ -25,34 +25,24 @@
     <div class="container">
 
 
-        <h1>Computer Form</h1>
-  <form method="POST">
+    <h1>Computer Form</h1>
+  <form method="POST" action="" enctype="multipart/form-data">
     {% csrf_token %}
-<!--    {{ computer.as_p }} -->
 
     <div class="form-group">
-      <label for="computer_code">Computer Code</label>
-      {{ computer.computer_code|add_class:"form-control" }}
+      <label for="brand_name">Brand Name</label>
+      {{ form.brand_name|add_class:"form-control" }}
     </div>
+
 
     <div class="form-group">
-      <label for="computer">Computer</label>
-      {{ computer.computer|add_class:"form-control" }}
+      <label for="logo"></label>
+      {{ form.logo|add_class:"form-control-file" }}
     </div>
 
-    <div class="form-group">
-      <label for="computer_code">Unit Price</label>
-      {{ computer.unit_price|add_class:"form-control" }}
-    </div>
-
-        <div class="form-group">
-    <label for="computer_code">Total Price</label>
-    {{ computer.total_price|add_class:"form-control" }}
-    </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-
 
     </div>
   </div>
