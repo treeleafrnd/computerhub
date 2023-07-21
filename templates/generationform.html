@@ -25,14 +25,14 @@
     <div class="container">
 
 
-        <h1>Computer Form</h1>
+        <h1>Generation Form</h1>
   <form method="POST" action="">
     {% csrf_token %}
 
     <div class="form-group">
       <label for="generation">Computer Generation</label>
       {{ form.generation|add_class:"form-control" }}
-    </div>
+    </div><br>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

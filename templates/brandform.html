@@ -14,6 +14,8 @@
     .navbar .nav-link {
       color: white;
     }
+
+
   </style>
   <meta charset="UTF-8">
   <title>Title</title>
@@ -22,10 +24,10 @@
   <div class="container-fluid">
     {% include 'navbar.html' %}
 
-    <div class="container">
+    <div class="container" style="margin: 5px;">
 
 
-    <h1>Computer Form</h1>
+    <h1>Brand Form</h1>
   <form method="POST" action="" enctype="multipart/form-data">
     {% csrf_token %}
 
@@ -36,9 +38,11 @@
 
 
     <div class="form-group">
-      <label for="logo"></label>
-      {{ form.logo|add_class:"form-control-file" }}
-    </div>
+        <label for="logo">Logo</label><br>
+        {{ form.logo|add_class:"form-control-file" }}
+    </div><br>
+
+
 
 
     <button type="submit" class="btn btn-primary">Submit</button>

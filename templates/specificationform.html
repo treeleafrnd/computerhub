@@ -25,7 +25,7 @@
     <div class="container">
 
 
-        <h1>Computer Form</h1>
+        <h1>Specification Form</h1>
   <form method="POST">
     {% csrf_token %}
 <!--    {{ computer.as_p }} -->
@@ -53,7 +53,7 @@
     <div class="form-group">
       <label for="brand">Brand</label>
       {{ form.brand|add_class:"form-control" }}
-    </div>
+    </div><br>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
