@@ -12,7 +12,7 @@
     }
   </style>
   <meta charset="UTF-8">
-  <title>List Page</title>
+  <title>Brand List</title>
 </head>
 {% include 'navbar.html' %}
 <body>
@@ -21,32 +21,27 @@
   <thead class="thead-dark">
     <tr>
       <th colspan="7" class="text-end">
-        <a href="{% url 'computer' %}" id="addDataBtn" class="btn btn-success">Add Computer</a>
+        <a href="{% url 'specification' %}" id="addDataBtn" class="btn btn-success">Add Specification</a>
       </th>
     </tr>
     <tr class="text-center">
       <th scope="col">SN</th>
-      <th scope="col">Model Name</th>
       <th scope="col">Generation</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Unit Price</th>
-      <th scope="col">Total Price</th>
-      <th scope="col">Action</th>
+      <th scope="col">Min Price</th>
+      <th scope="col">Max Price</th>
+      <th scope="col">Ram</th>
+      <th scope="col">Brand</th>
     </tr>
   </thead>
   <tbody>
     {% for item in list %}
       <tr class="text-center">
         <th scope="row">{{ forloop.counter }}</th>
-        <td>{{item.computer_code}}</td>
-        <td>{{ item.computer }}</td>
-        <td>{{item.quantity}}</td>
-        <td>{{ item.unit_price }}</td>
-        <td>{{ item.total_price }}</td>
-        <td class="action-buttons">
-          <a href="{% url 'update_computer' item.pk %}" class="btn btn-primary">Edit</a>
-          <a href="{% url 'delete_computer' item.pk %}" class="btn btn-danger">Delete</a>
-        </td>
+        <td>{{item.generation}}</td>
+        <td>{{item.min_price}}</td>
+        <td>{{item.max_price}}</td>
+        <td>{{item.ram}}</td>
+        <td>{{item.brand}}</td>
       </tr>
     {% endfor %}
   </tbody>

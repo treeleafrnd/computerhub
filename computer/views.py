@@ -98,7 +98,7 @@ from .forms import ComputerForm, BrandForm, SpecificationForm, GenerationForm
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import View
-from .models import Computer
+from .models import Computer, ComputerBrands,ComputerGeneration, ComputerSpecification
 
 class HomeView(View):
     def get(self, request):
@@ -107,6 +107,14 @@ class HomeView(View):
             'list': list
         }
         return render(request, 'home.html', context)
+
+class ListBrandView(View):
+    def get(self,request):
+        list = ComputerBrands.objects.all()
+        context = {
+            'list': list,
+        }
+        return render(request,'brandlist.html', context)
 
 class CreateComputerView(View):
     def get(self, request):
@@ -174,6 +182,14 @@ class CreateGenerationView(View):
             form.save()
             return redirect('/')
 
+class ListGenerationView(View):
+    def get(self, request):
+        list = ComputerGeneration.objects.all()
+        context = {
+            'list':list,
+        }
+        return render(request, 'generationlist.html', context)
+
 class CreateSpecificationView(View):
     def get(self, request):
         form = SpecificationForm()
@@ -187,3 +203,11 @@ class CreateSpecificationView(View):
         if form.is_valid():
             form.save()
             return redirect('/')
+
+class ListSpecificationView(View):
+    def get(self, request):
+        list = ComputerSpecification.objects.all()
+        context = {
+            'list':list,
+        }
+        return render(request,'specificationlist.html',context)
