@@ -41,17 +41,6 @@ class UpdateComputerView(View):
             form.save()
             return redirect('/')
 
-# class DeleteComputerView(View):
-#     def get(self, request, pk):
-#         computer = get_object_or_404(Computer, pk=pk)
-#         computer.delete()
-#         return redirect('/')
-#
-#     def post(self, request, pk):
-#         computer = get_object_or_404(Computer, pk=pk)
-#         computer.delete()
-#         return redirect('/')
-
 
 class DeleteComputerView(View):
     def post(self, request, pk):
@@ -80,7 +69,16 @@ class CreateBrandView(View):
     def post(self, request):
         form = BrandForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            # Save the form instance but don't commit yet
+            brand_instance = form.save(commit=False)
+
+            if 'logo' in request.FILES:
+                logo_files = request.FILES.getlist('logo')
+                for logo_file in logo_files:
+                    # Create a new instance of ComputerBrands for each logo
+                    brand_instance.pk = None
+                    brand_instance.logo = logo_file
+                    brand_instance.save()
             return redirect('listbrand')
 class UpdateBrandView(View):
     def get(self, request, pk):
